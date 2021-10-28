@@ -3,17 +3,14 @@ package com.stackoverflow.questions.entities;
 import java.io.Serializable;
 import javax.persistence.Embeddable;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Builder
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Embeddable
-public class MyIdClass implements Serializable {
-
+public class MyEmbeddedId implements Serializable {
   private String foo;
   private String bar;
 }

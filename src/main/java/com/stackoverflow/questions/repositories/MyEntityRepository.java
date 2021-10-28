@@ -21,7 +21,7 @@ public interface MyEntityRepository
 
   default void deleteByMyIdClassIn(Collection<MyIdClass> ids) {
     if (ids == null)
-      throw new NullPointerException("Null ids in when trying to delete by ids !");
+      throw new NullPointerException("Null ids when trying to delete by ids !");
     Specification<MyEntity> spec =
         Specification
             .where(
