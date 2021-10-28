@@ -60,4 +60,18 @@ class QuestionsApplicationTests {
 		assertDoesNotThrow(() -> myEntityRepository.deleteByIdIn(List.of(id1, id2)));
 		assertEquals(2, ((Collection<MyEntity>) myEntityRepository.findAll()).size());
 	}
+
+
+
+	// Just for the giggles
+	@Test
+	@Transactional
+	void deleteByMyIdClassIn_multipleIds_allDeletedWithCascades() {
+		assertEquals(4, ((Collection<MyEntity>) myEntityRepository.findAll()).size());
+		MyIdClass id1 = new MyIdClass("foo1", "bar1");
+		MyIdClass id2 = new MyIdClass("foo2", "bar2");
+
+		assertDoesNotThrow(() -> myEntityRepository.deleteByMyIdClassIn(List.of(id1, id2)));
+		assertEquals(2, ((Collection<MyEntity>) myEntityRepository.findAll()).size());
+	}
 }
