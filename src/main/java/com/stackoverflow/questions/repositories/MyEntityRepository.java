@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 public interface MyEntityRepository extends JpaRepository<MyEntity, MyIdClass> {
-  @Modifying(clearAutomatically = true)
+  @Modifying
   @Query("DELETE FROM MyEntity me WHERE me.id in (:ids)")
   void deleteByIdInWithQuery(@Param("ids") Collection<MyIdClass> ids);
 
